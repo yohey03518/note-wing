@@ -1,6 +1,10 @@
+﻿using note_wing.api.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IUserNoteRepository, UserNoteRepository>();
 
 var app = builder.Build();
 
