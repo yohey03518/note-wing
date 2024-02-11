@@ -1,0 +1,38 @@
+﻿@model note_wing.api.Models.NoteManagement.NewNoteRequest
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <form>
+    <select asp-for="NoteType">
+            <option value="1">English</option>
+            <option value="2">Programming</option>
+        </select>
+        <button>＋</button>
+        <br/>
+        <textarea asp-for="Content" rows="5" cols="50"></textarea>
+        <button type="button" onclick="send()">Submit</button>
+    </form>
+</div>
+<script>
+
+function send() {
+    var data = {
+        NoteType: document.querySelector('select').value,
+        Content: document.querySelector('textarea').value
+    };
+    fetch('/api/v1/note', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(function (response) {
+        alert("ok");
+    }).then(function (data) {
+        console.log(data);
+    });
+}
+    
+</script>
