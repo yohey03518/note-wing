@@ -3,15 +3,15 @@ import { DataSource } from "typeorm"
 import { User } from "./entity/User"
 
 export const AppDataSource = new DataSource({
-    type: "postgres",
+    type: "mysql",
     host: "localhost",
-    port: 5432,
-    username: "test",
-    password: "test",
-    database: "test",
+    port: 3306,
+    username: "root",
+    password: "12345678",
+    database: "NoteWingMain",
     synchronize: true,
     logging: false,
     entities: [User],
-    migrations: [],
+    migrations: ["src/migration/**/*.ts"],
     subscribers: [],
 })
