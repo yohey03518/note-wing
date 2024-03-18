@@ -18,6 +18,6 @@
       "start": "ts-node src/index.ts",
       "typeorm": "typeorm-ts-node-commonjs",
       "generate": "npm run typeorm migration:generate ./src/migration/migration  -- -d .\\src\\data-source.ts",
-      "run": "npm run typeorm migration:run -- -d .\\src\\data-source.ts"
+      "migrate": "npm run typeorm migration:run -- -d .\\src\\data-source.ts"
    }
 }
